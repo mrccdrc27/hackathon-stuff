@@ -11,9 +11,9 @@ This document evaluates the feasibility of the framework proposed in `ARCHITECTU
 
 ### B. Specialized Agent Architecture
 - **Strategy:** Distributing intelligence across three specialized agents instead of a single monolithic orchestrator.
-    1.  **Management Agent (Gemini Live):** Handles team interaction, blockers, and project deliverables. Context is "baked" per meeting instance, scoped to GitHub issues and high-level milestones. //add scope to current kamban or project context/sprint, and calendar
+    1.  **Management Agent (Gemini Live):** Handles team interaction, blockers, and project deliverables. Context is "baked" per meeting instance, scoped to GitHub issues, high-level milestones, the current Kanban board/Sprint status, and team calendars.
     2.  **Senior Dev Agent (Codebase Specialist):** Utilizes GitHub MCP and robust agentic capabilities for deep codebase analysis, edge-case detection, and architectural queries.
-    3.  **Project Manager Agent (Task Creator):** Maintains "Project + Management" context to convert codebase gaps and meeting outcomes into structured tasks. //add tickets on context (github issues)
+    3.  **Project Manager Agent (Task Creator):** Maintains "Project + Management" context, including full GitHub Issue/Ticket metadata, to convert codebase gaps and meeting outcomes into structured tasks.
 - **Feasibility:** Moderate-High. Leveraging specialized models for specific tasks (Flash for low-latency live interaction, Pro/Custom agents for deep reasoning) optimizes both performance and cost.
 
 ### C. Gemini Multimodal Live API Strategy

@@ -44,8 +44,12 @@ The **Agno framework** orchestrates the hand-off and state transitions:
 -   **Responsibilities:**
     -   **Context Digestion:** Monitors GitHub issues, Kanban state, and Senior Dev logs.
     -   **Task Baking:** Prepares "Next Meeting" context for the Management Agent.
-    -   **Auto-Aggregation:** Consolidates unreviewed tasks/tickets into a "Daily Digest." //elaborate this, what is daily digest, what does it do and why is it important.
-    -   **Lifecycle:** Can create backlogs but does *not* auto-resolve or update existing tasks to "Done" unless explicitly prompted. //explicitly define what it can do and its scope in relation to the kamban/tasks board (CRUD)
+    -   **Auto-Aggregation (The Daily Digest):** Consolidates unreviewed tasks, repository deltas, and pending tickets into a single, high-priority "Daily Digest." This prevents notification fatigue by grouping low-signal updates and ensuring the team only reviews a prioritized synthesis during the standup.
+    -   **Lifecycle & Kanban Scope:** The PM Agent manages the **CRUD lifecycle of metadata** for the project board. It can:
+        - **Create:** Draft new tasks from meeting notes or Senior Dev logs.
+        - **Read:** Audit the current state of all issues/tickets.
+        - **Update:** Suggest status transitions (e.g., "Ready for Review") based on GitHub signals (PR opened).
+        - **Constraint:** It does *not* auto-resolve or mark tasks as "Done" or "Deleted" without explicit human approval, ensuring a Human-in-the-Loop (HITL) safety barrier.
 -   **Input:** Multi-source context (GitHub, Meeting notes, Senior Dev logs).
 -   **Output:** Draft backlogs, baked meeting context, daily digests.
 
